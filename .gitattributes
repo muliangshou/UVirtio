@@ -1,0 +1,5 @@
+*.yaml text eol=lf
+*.yml text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+* text=auto

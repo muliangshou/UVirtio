@@ -1,0 +1,29 @@
+mainmenu "RT-Thread Configuration"
+
+config ROOT_DIR
+    string
+    default "../../../.."
+
+config BSP_DIR
+    string
+    default "."
+
+config RT_Thread_DIR 
+    string
+    default "../.."
+
+config RTT_DIR
+    string
+    default "../../rt-thread"
+
+config APP_DIR
+    string
+    default "../../../../APP_Framework"
+
+source "$RTT_DIR/Kconfig"
+source "$RTT_DIR/bsp/stm32/libraries/Kconfig"
+source "board/Kconfig"
+source "$RT_Thread_DIR/micropython/Kconfig"
+source "$RT_Thread_DIR/app_match_rt-thread/Kconfig"
+source "$ROOT_DIR/APP_Framework/Kconfig"
+

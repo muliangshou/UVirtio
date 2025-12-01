@@ -1,0 +1,17 @@
+if BSP_USING_DAC
+    config DAC_BUS_NAME
+        string "dac bus name"
+        default "dac"
+
+    config DAC_DRIVER_NAME
+        string "dac driver name"
+        default "dac_drv"
+
+    config DAC_DEVICE_NAME
+        string "dac bus device name"
+        default "dac_dev"
+
+    config DAC_GPIO_NUM
+        int "dac gpio pin num(only support 4 or 5)"
+        default "4"
+endif

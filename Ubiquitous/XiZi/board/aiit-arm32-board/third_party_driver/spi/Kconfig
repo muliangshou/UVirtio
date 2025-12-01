@@ -1,0 +1,77 @@
+config BSP_USING_SPI1
+bool "Using spi1  "
+default n
+
+if BSP_USING_SPI1
+    config SPI_BUS_NAME_1
+        string "spi bus 1 name"
+        default "spi1"
+    config SPI_1_DRV_NAME
+        string "spi bus 1 driver name"
+        default "spi1_drv"
+endif
+
+config BSP_USING_SPI2
+bool "Using spi2  "
+default n
+
+if BSP_USING_SPI2
+    config SPI_BUS_NAME_2
+        string "spi bus 2 name"
+        default "spi2"
+    config SPI_2_DRV_NAME
+        string "spi bus 2 driver name"
+        default "spi2_drv"
+    menuconfig RESOURCES_SPI_LORA
+    bool "Using spi lora function"
+    default n
+    if RESOURCES_SPI_LORA
+    config SX12XX_SPI_DEVICE_NAME
+        string "SX1278 lora device spi name"
+        default "spi2_dev0"
+    config SX12XX_DEVICE_NAME
+        string "SX1278 lora device name"
+        default "spi2_lora"
+
+    config SX12XX_DEVICE_RST_PIN
+        int
+        default 10
+
+    config SX12XX_DEVICE_DO0_PIN
+        int
+        default 10
+
+    config SX12XX_DEVICE_DO1_PIN
+        int
+        default 10
+
+    config SX12XX_DEVICE_DO2_PIN
+        int
+        default 10
+    
+    config SX12XX_DEVICE_DO3_PIN
+        int
+        default 10
+    
+    config SX12XX_DEVICE_DO4_PIN
+        int
+        default 10
+    
+    config SX12XX_DEVICE_DO5_PIN
+        int
+        default 10
+    endif
+endif
+
+config BSP_USING_SPI3
+bool "Using spi3  "
+default n
+
+if BSP_USING_SPI3
+    config SPI_BUS_NAME_3
+        string "spi bus 3 name"
+        default "spi3"
+    config SPI_3_DRV_NAME
+        string "spi bus 3 driver name"
+        default "spi3_drv"
+endif

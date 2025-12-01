@@ -1,0 +1,43 @@
+config ADAPTER_ETHERCAT_HFA21
+        string "HFA21 EtherCAT adapter name"
+        default "hfa21_ethercat"
+
+config ADAPTER_ETHERCAT_HFA21_ROLE
+        bool "support ethercat role configure"
+        default y
+        choice 
+        prompt "EtherCAT adapter select net role type "
+        default AS_ETHERCAT_SLAVE_ROLE
+
+        config AS_ETHERCAT_MASTER_ROLE
+                bool "config as a master"
+
+        config AS_ETHERCAT_SLAVE_ROLE
+                bool "config as a slave"
+        endchoice
+
+
+config ADAPTER_ETHERCAT_HFA21_NETMASK
+        string "Current EtherCAT adapter netmask"
+        default "255.255.255.0"
+
+        
+config ADAPTER_ETHERCAT_HFA21_GATEWAY
+        string "Current EtherCAT adapter gateway"
+        default "10.10.100.254"
+
+config ADAPTER_ETHERCAT_HFA21_IP_SELF
+        string "Current EtherCAT adapter IP"
+        default "10.10.100.254"
+        
+config ADAPTER_ETHERCAT_ADDRESS_SELF
+        string "Current EtherCAT address"
+        default 0x12345678
+
+config ADAPTER_ETHERCAT_HFA21_IP_FROM 
+        string "Receive Packet from IP"
+        default "10.10.100.50"
+
+config ADAPTER_ETHERCAT_HFA21_IP_TO
+        string "Send Packet to IP"
+        default "10.10.100.50"

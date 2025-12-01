@@ -1,0 +1,90 @@
+menuconfig SUPPORT_SENSOR_FRAMEWORK
+        bool "support sensor framework"
+        default n
+        select TRANSFORM_LAYER_ATTRIUBUTE
+
+if SUPPORT_SENSOR_FRAMEWORK
+        menuconfig SENSOR_HCHO
+                bool "Using HCHO sensor device"
+                default n
+        if SENSOR_HCHO
+        source "$APP_DIR/Framework/sensor/hcho/Kconfig"
+        endif
+
+        menuconfig SENSOR_TVOC
+                bool "Using TVOC sensor device"
+                default n
+        if SENSOR_TVOC
+        source "$APP_DIR/Framework/sensor/tvoc/Kconfig"
+        endif
+
+        menuconfig SENSOR_IAQ
+                bool "Using IAQ sensor device"
+                default n
+        if SENSOR_IAQ
+        source "$APP_DIR/Framework/sensor/iaq/Kconfig"
+        endif
+
+        menuconfig SENSOR_CH4
+                bool "Using Ch4 sensor device"
+                default n
+        if SENSOR_CH4
+        source "$APP_DIR/Framework/sensor/ch4/Kconfig"
+        endif
+
+        menuconfig SENSOR_CO2
+                bool "Using CO2 sensor device"
+                default n
+        if SENSOR_CO2
+        source "$APP_DIR/Framework/sensor/co2/Kconfig"
+        endif
+
+        menuconfig SENSOR_PM
+                bool "Using PM sensor device"
+                default n
+        if SENSOR_PM
+        source "$APP_DIR/Framework/sensor/pm/Kconfig"
+        endif
+
+        menuconfig SENSOR_VOICE
+                bool "Using voice sensor device"
+                default n
+        if SENSOR_VOICE
+        source "$APP_DIR/Framework/sensor/voice/Kconfig"
+        endif
+
+        menuconfig SENSOR_TEMPERATURE
+                bool "Using temperature sensor device"
+                default n
+        if SENSOR_TEMPERATURE
+        source "$APP_DIR/Framework/sensor/temperature/Kconfig"
+        endif
+
+        menuconfig SENSOR_HUMIDITY
+                bool "Using humidity sensor device"
+                default n
+        if SENSOR_HUMIDITY
+        source "$APP_DIR/Framework/sensor/humidity/Kconfig"
+        endif
+
+        menuconfig SENSOR_WINDSPEED
+                bool "Using wind speed sensor device"
+                default n
+        if SENSOR_WINDSPEED
+        source "$APP_DIR/Framework/sensor/windspeed/Kconfig"
+        endif
+
+        menuconfig SENSOR_WINDDIRECTION
+                bool "Using wind direction sensor device"
+                default n
+        if SENSOR_WINDDIRECTION
+        source "$APP_DIR/Framework/sensor/winddirection/Kconfig"
+        endif
+
+        menuconfig SENSOR_ALTITUDE
+                bool "Using altitude sensor device"
+                default n
+        if SENSOR_ALTITUDE
+        source "$APP_DIR/Framework/sensor/altitude/Kconfig"
+        endif
+endif

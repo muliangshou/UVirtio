@@ -1,0 +1,5 @@
+menu "More Drivers"
+
+source "$RT_Thread_DIR/app_match_rt-thread/rw007/Kconfig"
+source "$RT_Thread_DIR/app_match_rt-thread/ov2640/Kconfig"
+endmenu

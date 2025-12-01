@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/connection/zigbee/e18/Make.defs
+############################################################################
+ifneq ($(CONFIG_ADAPTER_ZIGBEE_E18),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/zigbee/e18
+endif

@@ -1,0 +1,38 @@
+{
+"siemens plc":
+{
+    "device type": "PLC",
+    "control type": "HSC",
+	"info":
+	{
+	    "plc ability"  : 1,
+	    "plc device id": 1,
+	    "soft version" : 1,
+	    "hardware version": 1,
+	    "date": "2022-1-28",
+	    "vendor": "siemens",
+	    "model":"S300"
+	},
+
+	"serial config":
+	{
+	    "serial type":"485",
+	    "station id" : "station1",
+	    "serial port" : 1
+	},
+
+	"network config":
+	{
+	    "ip addr" : "192.168.250.5",
+	    "ip port" : 4840
+	},
+
+	"interface":
+	{
+	    "inhybridnet":"OPCUA",
+	    "transport":"TCP",
+	    "ip address": "192.168.250.5",
+	    "attribute" : "1"
+	}
+}
+}

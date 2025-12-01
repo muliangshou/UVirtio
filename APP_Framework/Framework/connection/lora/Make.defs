@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Framework/connection/lora/Make.defs
+############################################################################
+ifneq ($(CONFIG_ADAPTER_SX1278),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/lora
+endif
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/connection/lora/*/Make.defs)

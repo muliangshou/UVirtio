@@ -1,0 +1,10 @@
+if CONNECTION_ADAPTER_ZIGBEE
+    config ADAPTER_E18
+            bool "Using zigbee adapter device E18"
+            default y
+    
+    if ADAPTER_E18
+        source "$APP_DIR/Framework/connection/zigbee/e18/Kconfig"
+    endif
+        
+endif

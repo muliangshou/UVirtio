@@ -1,0 +1,7 @@
+menuconfig USING_K210_YOLOV2_DETECT
+    bool "k210 yolov2 detect procedure"
+	depends on USING_KPU_PROCESSING
+    default n
+
+
+

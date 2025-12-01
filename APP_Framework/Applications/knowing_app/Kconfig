@@ -1,0 +1,16 @@
+menu "knowing app"
+     menuconfig APPLICATION_KNOWING
+        bool "Using knowing apps"
+        default n
+        
+    if APPLICATION_KNOWING
+        source "$APP_DIR/Applications/knowing_app/mnist/Kconfig" 
+        source "$APP_DIR/Applications/knowing_app/k210_detect_entry/Kconfig" 
+        source "$APP_DIR/Applications/knowing_app/iris_ml_demo/Kconfig" 
+        source "$APP_DIR/Applications/knowing_app/k210_fft_test/Kconfig" 
+        source "$APP_DIR/Applications/knowing_app/image_processing/Kconfig" 
+        source "$APP_DIR/Applications/knowing_app/cmsis_5_demo/Kconfig"
+        source "$APP_DIR/Applications/knowing_app/nnom_demo/Kconfig"  
+ 
+    endif 
+endmenu

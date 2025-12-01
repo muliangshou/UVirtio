@@ -1,0 +1,7 @@
+menu "ota app "
+    menuconfig APPLICATION_OTA
+        bool "Using app bin ota"
+        default n
+
+
+endmenu

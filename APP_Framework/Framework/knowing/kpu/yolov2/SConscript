@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('yolov2', src, depend = ['USING_YOLOV2'], CPPPATH = [cwd])
+
+Return('group')

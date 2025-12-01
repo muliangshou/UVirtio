@@ -1,0 +1,27 @@
+menuconfig IMAGE_PROCESSING_USING_TJPGD
+    bool "TJpgDec: Tiny JPEG Decompressor."
+    default n
+
+if IMAGE_PROCESSING_USING_TJPGD
+        config TJPGD_INPUT_BUFFER_SIZE
+                int "Size of stream input buffer"
+                default 512
+        choice
+        prompt "Output format"
+        default TJPGD_USING_FORMAT_RGB888
+        help
+                Select the RGB output format
+        config TJPGD_USING_FORMAT_RGB888
+                bool "RGB888"
+        config TJPGD_USING_FORMAT_RGB565
+                bool "RGB565"
+        endchoice
+
+        config TJPGD_USING_SCALE
+                bool "Use output descaling"
+                default y
+                
+        config TJPGD_USING_TBLCLIP
+                bool "Use table for saturation"
+                default y
+endif

@@ -1,0 +1,40 @@
+
+mainmenu "Ubiquitous Kernel Selector"
+
+config BSP_DIR
+    string
+    option env="BSP_ROOT"
+    default "."
+
+config KERNEL_DIR
+    string
+    option env="KERNEL_ROOT"
+    default "../.."
+
+config UBIQUITOUS_DIR
+    string
+    option env="UBIQUITOUS_ROOT"
+    default "../../.."
+
+source "$UBIQUITOUS_DIR/Kselector_features"
+
+source "$UBIQUITOUS_DIR/Kselector_params"
+
+config MANUALLY_SELECT
+    bool "Manually select a kernel"
+    default n
+if MANUALLY_SELECT
+menu "Required Kernel"
+choice
+    prompt "Select OS Kernel"
+    default SELECT_XIUOS
+
+    	config SELECT_RT_THREAD
+		bool "select RT_Thread"
+	config SELECT_NUTTX
+		bool "select Nuttx"
+	config SELECT_XIUOS
+		bool "select XiZi"
+endchoice
+endmenu
+endif

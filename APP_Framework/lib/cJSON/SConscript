@@ -1,0 +1,10 @@
+from building import * 
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('cjson', src, depend = ['LIB_USING_CJSON'], CPPPATH = [cwd])
+
+Return('group')

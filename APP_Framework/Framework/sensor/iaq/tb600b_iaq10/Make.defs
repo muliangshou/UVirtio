@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/iaq/tb600b_iaq10/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_TB600B_IAQ10),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/iaq/tb600b_iaq10
+endif

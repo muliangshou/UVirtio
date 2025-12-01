@@ -1,0 +1,10 @@
+from building import * 
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('queue', src, depend = ['LIB_USING_QUEUE'], CPPPATH = [cwd])
+
+Return('group')

@@ -1,0 +1,12 @@
+xsconfig.h
+xsconfig.mk
+.config
+.config.old  
+build
+XiUOS.*
+*.swp
+.vscode
+# for kernel_selector
+.selector
+.selector.old
+requirement.yaml

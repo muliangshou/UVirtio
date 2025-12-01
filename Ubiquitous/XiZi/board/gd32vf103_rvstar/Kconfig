@@ -1,0 +1,31 @@
+mainmenu "XiZi Project Configuration"
+
+config BSP_DIR
+    string
+    option env="BSP_ROOT"
+    default "."
+
+config KERNEL_DIR
+    string
+    option env="KERNEL_ROOT"
+    default "../.."
+
+config BOARD_GD32VF103RVSTAR
+    bool
+    select  ARCH_RISCV
+    default y   
+
+source "$KERNEL_DIR/arch/Kconfig"
+
+menu "gd32vf103_rvstar feature"
+    source "$BSP_DIR/third_party_driver/Kconfig"
+endmenu
+
+
+menu "Hardware feature"
+    source "$KERNEL_DIR/resources/Kconfig"
+endmenu
+
+source "$KERNEL_DIR/Kconfig"
+
+

@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('k210_yolov2_detect_procedure', src, depend = ['USING_YOLOV2', 'USING_YOLOV2_JSONPARSER', 'USING_KPU_PROCESSING'], CPPPATH = [cwd])
+
+Return('group')

@@ -1,0 +1,108 @@
+
+config SENSOR_ZG09
+        bool "Using zg09"
+        default n
+
+        if SENSOR_ZG09
+                config SENSOR_DEVICE_ZG09
+                        string "zg09 sensor name"
+                        default "zg09_1"
+                
+                config SENSOR_QUANTITY_ZG09_CO2
+                        string "zg09 quantity name"
+                        default "co2_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_ZG09_DRIVER_EXTUART
+                                bool "Using extra uart to support zg09"
+                                default y
+
+                        config SENSOR_DEVICE_ZG09_DEV
+                                string "zg09 device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_ZG09_DRIVER_EXTUART
+
+                        if SENSOR_ZG09_DRIVER_EXTUART
+                                config SENSOR_DEVICE_ZG09_DEV
+                                        string "zg09 device extra uart path"
+                                        default "/dev/extuart_dev4"
+
+                                config SENSOR_DEVICE_ZG09_DEV_EXT_PORT
+                                        int "if ZG09 device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                       config SENSOR_DEVICE_ZG09_DEV
+                               string "CO2 device name"
+                               default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+                        config SENSOR_ZG09_DRIVER_EXTUART
+                                bool "Using extra uart to support zg09"
+                                default y
+
+                        config SENSOR_DEVICE_ZG09_DEV
+                                string "zg09 device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_ZG09_DRIVER_EXTUART
+
+                        if SENSOR_ZG09_DRIVER_EXTUART
+                                config SENSOR_DEVICE_ZG09_DEV
+                                        string "zg09 device extra uart path"
+                                        default "/dev/extuart_dev4"
+
+                                config SENSOR_DEVICE_ZG09_DEV_EXT_PORT
+                                        int "if ZG09 device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif                
+        endif
+
+config SENSOR_G8S
+        bool "Using g8-s"
+        default n
+
+        if SENSOR_G8S
+                config SENSOR_DEVICE_G8S
+                        string "g8-s sensor name"
+                        default "g8-s"
+                
+                config SENSOR_QUANTITY_G8S_CO2
+                        string "g8-s quantity name"
+                        default "co2_2"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_G8S_DRIVER_EXTUART
+                                bool "Using extra uart to support g8-s"
+                                default n
+
+                        config SENSOR_DEVICE_G8S_DEV
+                                string "g8-s device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_G8S_DRIVER_EXTUART
+
+                        if SENSOR_G8S_DRIVER_EXTUART
+                                config SENSOR_DEVICE_G8S_DEV
+                                        string "g8-s device extra uart path"
+                                        default "/dev/extuart_dev4"
+
+                                config SENSOR_DEVICE_G8S_DEV_EXT_PORT
+                                        int "if g8-s device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+
+                endif                
+        endif

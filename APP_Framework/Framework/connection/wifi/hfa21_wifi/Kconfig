@@ -1,0 +1,33 @@
+config ADAPTER_WIFI_HFA21
+        string "HFA21 WIFI adapter name"
+        default "hfa21_wifi"
+
+if ADD_XIZI_FETURES
+
+        config ADAPTER_HFA21_DRIVER_EXTUART
+                bool "Using extra uart to support wifi"
+                default n
+
+        config ADAPTER_HFA21_DRIVER
+                string "HFA21 device uart driver path"
+                default "/dev/usart3_dev3"
+                depends on !ADAPTER_HFA21_DRIVER_EXTUART
+
+        if ADAPTER_HFA21_DRIVER_EXTUART                    
+                config ADAPTER_HFA21_DRIVER
+                        string "HFA21 device extra uart driver path"
+                        default "/dev/extuart_dev6"
+
+                config ADAPTER_HFA21_DRIVER_EXT_PORT
+                        int "if HFA21 device using extuart, choose port"
+                        default "6"
+        endif
+endif
+
+if ADD_NUTTX_FETURES
+
+endif
+
+if ADD_RTTHREAD_FETURES
+
+endif

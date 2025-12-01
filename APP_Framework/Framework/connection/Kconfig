@@ -1,0 +1,87 @@
+menuconfig SUPPORT_CONNECTION_FRAMEWORK
+        bool "support connection framework"
+        default n
+        select TRANSFORM_LAYER_ATTRIUBUTE
+
+if SUPPORT_CONNECTION_FRAMEWORK
+        config CONNECTION_FRAMEWORK_DEBUG
+        bool "Using connection framework debug log function"
+        default y
+
+        menuconfig CONNECTION_INDUSTRIAL_ETHERNET
+                bool "Using industrial ethernet"
+                default n
+        if CONNECTION_INDUSTRIAL_ETHERNET
+        source "$APP_DIR/Framework/connection/industrial_ethernet/Kconfig"
+        endif
+
+        menuconfig CONNECTION_INDUSTRIAL_FIELDBUS
+                bool "Using industrial fieldbus"
+                default n
+        if CONNECTION_INDUSTRIAL_FIELDBUS
+        source "$APP_DIR/Framework/connection/industrial_fieldbus/Kconfig"
+        endif
+
+        menuconfig CONNECTION_INDUSTRIAL_WLAN
+                bool "Using industrial wlan"
+                default n
+        if CONNECTION_INDUSTRIAL_WLAN
+        source "$APP_DIR/Framework/connection/industrial_wlan/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_LORA
+                bool "Using lora adapter device"
+                default n
+        if CONNECTION_ADAPTER_LORA
+        source "$APP_DIR/Framework/connection/lora/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_4G
+                bool "Using 4G adapter device"
+                default n
+        if CONNECTION_ADAPTER_4G
+        source "$APP_DIR/Framework/connection/4g/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_NB
+                bool "Using nbiot adapter device"
+                default n
+        if CONNECTION_ADAPTER_NB
+        source "$APP_DIR/Framework/connection/nbiot/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_WIFI
+                bool "Using wifi adapter device"
+                default n
+        if CONNECTION_ADAPTER_WIFI
+        source "$APP_DIR/Framework/connection/wifi/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_ETHERNET
+                bool "Using ethernet adapter device"
+                default n
+        if CONNECTION_ADAPTER_ETHERNET
+        source "$APP_DIR/Framework/connection/ethernet/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_BLUETOOTH
+                bool "Using bluetooth adapter device"
+                default n
+        if CONNECTION_ADAPTER_BLUETOOTH
+        source "$APP_DIR/Framework/connection/bluetooth/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_ZIGBEE
+                bool "Using zigbee adapter device"
+                default n
+        if CONNECTION_ADAPTER_ZIGBEE
+        source "$APP_DIR/Framework/connection/zigbee/Kconfig"
+        endif
+
+        menuconfig CONNECTION_ADAPTER_5G
+                bool "Using 5G adapter device"
+                default n
+        if CONNECTION_ADAPTER_5G
+        source "$APP_DIR/Framework/connection/5g/Kconfig"
+        endif
+endif

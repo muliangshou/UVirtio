@@ -1,0 +1,50 @@
+menuconfig BSP_USING_LPUART
+    bool "Using UART device"
+    default y
+    select RESOURCES_SERIAL
+    if BSP_USING_LPUART
+        source "$BSP_DIR/third_party_driver/uart/Kconfig"
+    endif
+
+menuconfig BSP_USING_CH438
+    bool "Using CH438 device"
+    default n
+    if BSP_USING_CH438
+        source "$BSP_DIR/third_party_driver/ch438/Kconfig"
+    endif
+
+menuconfig BSP_USING_GPIO
+    bool "Using GPIO device "
+    default y
+    select RESOURCES_PIN
+    if BSP_USING_GPIO
+        source "$BSP_DIR/third_party_driver/gpio/Kconfig"
+    endif
+
+menuconfig BSP_USING_LWIP
+    bool "Using LwIP device"
+    default n
+    select RESOURCES_LWIP
+
+menuconfig BSP_USING_SEMC
+    bool "Using SEMC device"
+    default n
+    if BSP_USING_SEMC
+        source "$BSP_DIR/third_party_driver/semc/Kconfig"
+    endif
+
+menuconfig BSP_USING_SDIO
+    bool "Using SD card device"
+    default n
+    select RESOURCES_SDIO
+    if BSP_USING_SDIO
+        source "$BSP_DIR/third_party_driver/sdio/Kconfig"
+    endif
+
+menuconfig BSP_USING_USB
+    bool "Using USB device"
+    default n
+    select RESOURCES_USB
+    if BSP_USING_USB
+        source "$BSP_DIR/third_party_driver/usb/Kconfig"
+    endif

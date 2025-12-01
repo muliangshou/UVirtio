@@ -1,0 +1,46 @@
+menuconfig USING_NNOM
+    bool "NNOM"
+    default n
+
+if USING_NNOM
+
+    config NNOM_USING_STATIC_MEMORY
+        bool "Using static memory"
+        default n
+        help
+        must set buf using "nnom_set_static_buf()" before creating a model. 
+
+    config NNOM_TRUNCATE
+        bool "Using NNOM Truncate"
+        default n
+        help
+        disable: backend ops use round to the nearest int (default). enable: floor 
+    
+    choice
+        prompt "Select NNOM Format"
+        default NNOM_USING_HWC
+
+        config NNOM_USING_HWC
+            bool "Using HWC Format"
+
+        config NNOM_USING_CHW
+            bool "Using CHW Format"
+            help
+            CHW is incompatible with CMSIS-NN and must be used when using hardware accelerator such as KPU in K210 chip
+    endchoice
+
+    choice
+        prompt "Select NNOM Backend"
+        default USING_NNOM_NORMAL
+
+        config NNOM_USING_LOCAL
+            bool "Using NNOM local backend"
+
+        config NNOM_USING_CMSIS_NN
+            bool "Using CMSIS-NN backend"
+            select  USING_CMSIS_5
+            select  USING_CMSIS_5_NN
+    endchoice
+
+endif
+

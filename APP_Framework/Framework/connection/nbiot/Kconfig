@@ -1,0 +1,10 @@
+if CONNECTION_ADAPTER_NB
+    config ADAPTER_BC28
+            bool "Using nbiot adapter device BC28"
+            default y
+    
+    if ADAPTER_BC28
+        source "$APP_DIR/Framework/connection/nbiot/bc28/Kconfig"
+    endif
+        
+endif

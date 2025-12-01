@@ -1,0 +1,17 @@
+if BSP_USING_LCD
+    config LCD_BUS_NAME
+        string "lcd bus name"
+        default "lcd"
+    config LCD_DRV_NAME
+        string "lcd bus driver name"
+        default "lcd_drv"
+    config LCD_DEVICE_NAME
+        string "lcd bus device name"
+        default "lcd_dev"   
+    config BSP_LCD_X_MAX
+        int "LCD Height"
+        default 240
+    config BSP_LCD_Y_MAX
+        int "LCD Width"
+        default 320
+endif

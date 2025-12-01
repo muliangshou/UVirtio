@@ -1,0 +1,6 @@
+menuconfig USING_EMBEDDED_DATABASE
+    bool "embedded database"
+    default n
+if USING_EMBEDDED_DATABASE
+        source "$APP_DIR/lib/embedded_database/flashdb/Kconfig"
+endif

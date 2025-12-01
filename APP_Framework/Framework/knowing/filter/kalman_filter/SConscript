@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['ONE_ORDER_KALMAN_FILTER']):
+    src += ['one_order_kalman.c']
+group = DefineGroup('kalman filter', src, depend = ['USING_KALMAN_FILTER'], CPPPATH = [cwd])
+
+Return('group')

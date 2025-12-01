@@ -1,0 +1,10 @@
+config K210_DETECT_ENTRY
+    bool "enable apps/k210 yolov2 detect entry"
+    depends on BOARD_K210_EVB
+	depends on DRV_USING_OV2640
+	depends on USING_KPU_PROCESSING
+	depends on USING_YOLOV2
+	depends on USING_YOLOV2_JSONPARSER
+	depends on USING_K210_YOLOV2_DETECT
+    select LIB_USING_CJSON
+    default n

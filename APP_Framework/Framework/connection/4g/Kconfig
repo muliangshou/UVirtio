@@ -1,0 +1,8 @@
+config ADAPTER_EC200T
+        bool "Using 4G adapter device EC200T"
+        default y
+
+if ADAPTER_EC200T
+    source "$APP_DIR/Framework/connection/4g/ec200t/Kconfig"
+endif
+                

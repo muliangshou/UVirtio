@@ -1,0 +1,7 @@
+config ADAPTER_HC08
+        bool "Using bluetooth adapter device HC08"
+        default y
+
+if ADAPTER_HC08
+    source "$APP_DIR/Framework/connection/bluetooth/hc08/Kconfig"
+endif      

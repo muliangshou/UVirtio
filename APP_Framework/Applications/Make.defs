@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Applications/Make.defs
+############################################################################
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Applications
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Applications/general_functions/list
+
+include $(wildcard $(APPDIR)/../../../APP_Framework/Applications/*/Make.defs)

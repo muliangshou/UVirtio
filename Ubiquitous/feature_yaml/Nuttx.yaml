@@ -1,0 +1,21 @@
+version: 0.1.0
+#  Automatically generated file; DO NOT EDIT.
+#  Ubiquitous Kernel Selector
+
+Feature:
+
+#  CONFIG_FS is not set
+ BUS: true
+
+BUS:
+
+ USB: true
+#  CONFIG_SERIAL is not set
+
+Parameter:
+
+ RAM_LESS_THAN: 20
+ RAM_GREATER_THAN: 10000
+ ROM_LESS_THAN: 10
+ ROM_GREATER_THAN: 10000
+

@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/temperature/hs300x_temp/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_HS300X_TEMPERATURE),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/temperature/hs300x_temp
+endif

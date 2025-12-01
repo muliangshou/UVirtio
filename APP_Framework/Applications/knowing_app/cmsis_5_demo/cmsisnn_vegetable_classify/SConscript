@@ -1,0 +1,18 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Split('''
+model/nn_vegetable_classify.c
+cmsisnn_vegetable_classify.c
+''')
+
+path = [
+    cwd + '/model',
+    cwd + '/demo'
+    ]
+
+group = DefineGroup('CMSISNN vegetable classify application', src, depend = ['USING_CMSIS_5_NN_DEMOAPP_VEG_CLASSIFY'], CPPPATH = path)
+
+Return('group')

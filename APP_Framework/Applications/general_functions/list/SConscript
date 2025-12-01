@@ -1,0 +1,11 @@
+import os
+from building import * 
+Import('RTT_ROOT')
+Import('rtconfig')
+cwd = GetCurrentDir()
+DEPENDS = [""]
+
+SOURCES = ['double_list.c'] + ['single_list.c']
+path =  [cwd]
+objs = DefineGroup('list', src = SOURCES, depend = DEPENDS,CPPPATH = path) 
+Return("objs") 

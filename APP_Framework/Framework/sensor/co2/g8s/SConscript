@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SENSOR_G8S']):
+    src += ['g8s.c']
+group = DefineGroup('sensor co2 g8s', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

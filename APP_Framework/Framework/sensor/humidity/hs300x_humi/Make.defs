@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/humidity/hs300x_humi/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_HS300X_HUMIDITY),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/humidity/hs300x_humi
+endif

@@ -1,0 +1,260 @@
+menu "Hardware Drivers Config"
+
+config SOC_IMXRT1052CVL5B
+    bool 
+    select SOC_MIMXRT1050_SERIES
+    select RT_USING_COMPONENTS_INIT
+    select RT_USING_USER_MAIN
+    default y
+
+menu "On-chip Peripheral Drivers"
+
+    config BSP_USING_BOOT_IMAGE
+        bool "Enable boot image"
+        default y
+    config BSP_USING_DMA
+        bool "Enable DMA"
+        default n
+        
+    config BSP_USING_GPIO
+        bool "Enable GPIO"
+        select RT_USING_PIN
+        default y
+    menuconfig BSP_USING_LPUART
+        bool "Enable UART"
+        select RT_USING_SERIAL
+        default y
+        
+        if BSP_USING_LPUART
+            config BSP_USING_LPUART1
+                bool "Enable LPUART1"
+                default y
+
+                config BSP_LPUART1_RX_USING_DMA
+                    bool "Enable LPUART1 RX DMA"
+                    depends on BSP_USING_LPUART1
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART1_RX_DMA_CHANNEL
+                        depends on BSP_LPUART1_RX_USING_DMA
+                        int "Set LPUART1 RX DMA channel (0-32)"
+                        default 0
+
+                config BSP_LPUART1_TX_USING_DMA
+                    bool "Enable LPUART1 TX DMA"
+                    depends on BSP_USING_LPUART1
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART1_TX_DMA_CHANNEL
+                        depends on BSP_LPUART1_TX_USING_DMA
+                        int "Set LPUART1 TX DMA channel (0-32)"
+                        default 1
+
+            config BSP_USING_LPUART2
+                bool "Enable LPUART2"
+                default y
+
+                config BSP_LPUART2_RX_USING_DMA
+                    bool "Enable LPUART2 RX DMA"
+                    depends on BSP_USING_LPUART2
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART2_RX_DMA_CHANNEL
+                        depends on BSP_LPUART2_RX_USING_DMA
+                        int "Set LPUART2 RX DMA channel (0-32)"
+                        default 2
+
+                config BSP_LPUART2_TX_USING_DMA
+                    bool "Enable LPUART2 TX DMA"
+                    depends on BSP_USING_LPUART2
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART2_TX_DMA_CHANNEL
+                        depends on BSP_LPUART2_TX_USING_DMA
+                        int "Set LPUART2 TX DMA channel (0-32)"
+                        default 3
+
+            config BSP_USING_LPUART3
+                bool "Enable LPUART3"
+                default y
+
+                config BSP_LPUART3_RX_USING_DMA
+                    bool "Enable LPUART3 RX DMA"
+                    depends on BSP_USING_LPUART3
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART3_RX_DMA_CHANNEL
+                        depends on BSP_LPUART3_RX_USING_DMA
+                        int "Set LPUART3 RX DMA channel (0-32)"
+                        default 4
+
+                config BSP_LPUART3_TX_USING_DMA
+                    bool "Enable LPUART3 TX DMA"
+                    depends on BSP_USING_LPUART3
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART3_TX_DMA_CHANNEL
+                        depends on BSP_LPUART3_TX_USING_DMA
+                        int "Set LPUART3 TX DMA channel (0-32)"
+                        default 5
+
+            config BSP_USING_LPUART4
+                bool "Enable LPUART4"
+                default n
+
+                config BSP_LPUART4_RX_USING_DMA
+                    bool "Enable LPUART4 RX DMA"
+                    depends on BSP_USING_LPUART4
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART4_RX_DMA_CHANNEL
+                        depends on BSP_LPUART4_RX_USING_DMA
+                        int "Set LPUART4 RX DMA channel (0-32)"
+                        default 6
+
+                config BSP_LPUART4_TX_USING_DMA
+                    bool "Enable LPUART4 TX DMA"
+                    depends on BSP_USING_LPUART4
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART4_TX_DMA_CHANNEL
+                        depends on BSP_LPUART4_TX_USING_DMA
+                        int "Set LPUART4 TX DMA channel (0-32)"
+                        default 7
+            
+            
+            config BSP_USING_LPUART8
+                bool "Enable LPUART8"
+                default y
+
+                config BSP_LPUART8_RX_USING_DMA
+                    bool "Enable LPUART8 RX DMA"
+                    depends on BSP_USING_LPUART8
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART8_RX_DMA_CHANNEL
+                        depends on BSP_LPUART8_RX_USING_DMA
+                        int "Set LPUART8 RX DMA channel (0-32)"
+                        default 8
+
+                config BSP_LPUART8_TX_USING_DMA
+                    bool "Enable LPUART8 TX DMA"
+                    depends on BSP_USING_LPUART8
+                    select BSP_USING_DMA
+                    select RT_SERIAL_USING_DMA
+                    default n
+
+                    config BSP_LPUART8_TX_DMA_CHANNEL
+                        depends on BSP_LPUART8_TX_USING_DMA
+                        int "Set LPUART8 TX DMA channel (0-32)"
+                        default 9
+
+        endif
+    menuconfig BSP_USING_I2C
+        bool "Enable I2C"
+        select RT_USING_I2C
+        default n
+        if BSP_USING_I2C
+            config BSP_USING_I2C1
+                bool "Enable I2C1"
+                default n
+            choice
+                prompt "Select I2C1 badurate"
+                default HW_I2C1_BADURATE_100kHZ
+
+                config HW_I2C1_BADURATE_100kHZ
+                    bool "Badurate 100kHZ"
+
+                config HW_I2C1_BADURATE_400kHZ
+                    bool "Badurate 400kHZ"
+            endchoice
+        endif
+
+    menuconfig BSP_USING_CAN
+        bool "Enable CAN"
+        select RT_USING_CAN
+        default n
+
+        if BSP_USING_CAN
+            config BSP_USING_CAN1
+                bool "Enable CAN1"
+                default y
+        endif
+    
+    config BSP_USING_RTC
+        bool "Enable RTC"
+        select RT_USING_RTC
+        default n
+    
+    config BSP_USING_SDIO
+        bool "Enable SDIO"
+        default n
+
+endmenu
+
+menu "Onboard Peripheral Drivers"
+    config BSP_USING_SDRAM
+        bool "Enable SDRAM"
+        default n
+    config BSP_USING_SDCARD
+	    bool "Using SDCard"
+        select BSP_USING_SDIO
+        select RT_USING_SDIO
+        select RT_USING_DFS
+        select RT_USING_DFS_ELMFAT
+	    default n 
+
+    menuconfig BSP_USING_ETH
+	bool "Enable Ethernet"
+	select RT_USING_NETDEV
+	default n
+	if BSP_USING_ETH
+		config BSP_USING_PHY
+            select RT_USING_PHY
+			bool "Enable ethernet phy"
+			default y
+
+	    if BSP_USING_PHY
+            config PHY_DEVICE_ADDRESS
+                int "Specify address of phy device"
+                default 0
+
+            config PHY_USING_8720A
+                bool "xidatong use LAN8720A phy"
+                default y
+
+            if PHY_USING_8720A
+                config PHY_RESET_PORT
+                    int "indicate port of reset"
+                    default 1
+
+                config PHY_RESET_PIN
+                    int "indicate pin of reset"
+                    default 3
+            endif
+
+        endif
+	endif
+
+endmenu
+
+
+endmenu

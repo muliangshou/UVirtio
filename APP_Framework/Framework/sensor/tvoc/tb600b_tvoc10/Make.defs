@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/tvoc/tb600b_tvoc10/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_TB600B_TVOC10),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/tvoc/tb600b_tvoc10
+endif

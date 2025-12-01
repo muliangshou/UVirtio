@@ -1,0 +1,7 @@
+menu "connection app"
+
+    menuconfig APPLICATION_CONNECTION
+        bool "Using connection apps"
+        default n
+	
+endmenu

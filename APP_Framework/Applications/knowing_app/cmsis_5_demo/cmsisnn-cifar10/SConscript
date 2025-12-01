@@ -1,0 +1,18 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Split('''
+model/m4/nn.c
+demo/cmsisnn_demo.c
+''')
+
+path = [
+    cwd + '/model/m4',
+    cwd + '/demo'
+    ]
+
+group = DefineGroup('CMSISNN-cifar10', src, depend = ['USING_CMSIS_5_NN_DEMOAPP'], CPPPATH = path)
+
+Return('group')

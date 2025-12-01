@@ -1,0 +1,14 @@
+menuconfig BSP_USING_UART0
+    bool "Enable UART0"
+    default y
+    if BSP_USING_UART0
+        config SERIAL_BUS_NAME_0
+            string "serial bus  name"
+            default "uart0"
+        config SERIAL_DRV_NAME_0
+            string "serial bus  driver name"
+            default "uart0_drv"
+        config SERIAL_0_DEVICE_NAME_0
+                string "serial bus  device name"
+                default "uart0_dev0"   
+    endif

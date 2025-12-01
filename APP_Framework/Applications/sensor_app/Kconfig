@@ -1,0 +1,161 @@
+menu "sensor app"
+
+    menuconfig APPLICATION_SENSOR
+        bool "Using sensor apps"
+        default n
+
+        if APPLICATION_SENSOR
+            menuconfig APPLICATION_SENSOR_HCHO
+                bool "Using sensor HCHO apps"
+                default n
+
+                if APPLICATION_SENSOR_HCHO
+                    config APPLICATION_SENSOR_HCHO_TB600B_WQ_HCHO1OS
+                    bool "Using sensor TB600B_WQ_HCHO1OS apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_TVOC
+                bool "Using sensor TVOC apps"
+                default n
+
+                if APPLICATION_SENSOR_TVOC
+                    config APPLICATION_SENSOR_TVOC_TB600B_TVOC10
+                    bool "Using sensor TB600B_TVOC10 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_IAQ
+                bool "Using sensor IAQ apps"
+                default n
+
+                if APPLICATION_SENSOR_IAQ
+                    config APPLICATION_SENSOR_IAQ_TB600B_IAQ10
+                    bool "Using sensor TB600B_IAQ10 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_CH4
+                bool "Using sensor CH4 apps"
+                default n
+
+                if APPLICATION_SENSOR_CH4
+                    config APPLICATION_SENSOR_CH4_AS830
+                    bool "Using sensor AS830 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_CO2
+                bool "Using sensor CO2 apps"
+                default n
+
+                if APPLICATION_SENSOR_CO2
+                    config APPLICATION_SENSOR_CO2_ZG09
+                    bool "Using sensor ZG09 apps"
+                    default n
+
+                    config APPLICATION_SENSOR_CO2_G8S
+                    bool "Using sensor G8S apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_PM1_0
+                bool "Using sensor PM1.0 apps"
+                default n
+
+                if APPLICATION_SENSOR_PM1_0
+                    config APPLICATION_SENSOR_PM1_0_PS5308
+                    bool "Using sensor PS5308 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_PM2_5
+                bool "Using sensor PM2.5 apps"
+                default n
+
+                if APPLICATION_SENSOR_PM2_5
+                    config APPLICATION_SENSOR_PM2_5_PS5308
+                    bool "Using sensor PS5308 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_PM10
+                bool "Using sensor PM10 apps"
+                default n
+
+                if APPLICATION_SENSOR_PM10
+                    config APPLICATION_SENSOR_PM10_PS5308
+                    bool "Using sensor PS5308 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_VOICE
+                bool "Using sensor voice apps"
+                default n
+
+                if APPLICATION_SENSOR_VOICE
+                    config APPLICATION_SENSOR_VOICE_D124
+                    bool "Using sensor D124 apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_TEMPERATURE
+                bool "Using sensor temperature apps"
+                default n
+
+                if APPLICATION_SENSOR_TEMPERATURE
+                    config APPLICATION_SENSOR_TEMPERATURE_HS300X
+                    bool "Using sensor HS300x apps"
+                    default n
+                    
+                    if ADD_NUTTX_FETURES
+                    endif
+
+                endif
+
+            menuconfig APPLICATION_SENSOR_HUMIDITY
+                bool "Using sensor humidity apps"
+                default n
+
+                if APPLICATION_SENSOR_HUMIDITY
+                    config APPLICATION_SENSOR_HUMIDITY_HS300X
+                    bool "Using sensor HS300x apps"
+                    default n
+
+                    if ADD_NUTTX_FETURES
+                    endif
+
+                endif
+                
+            menuconfig APPLICATION_SENSOR_WINDDIRECTION
+                bool "Using sensor wind direction apps"
+                default n
+
+                if APPLICATION_SENSOR_WINDDIRECTION
+                    config APPLICATION_SENSOR_WINDDIRECTION_QS_FX
+                    bool "Using sensor QS-FX apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_WINDSPEED
+                bool "Using sensor wind speed apps"
+                default n
+
+                if APPLICATION_SENSOR_WINDSPEED
+                    config APPLICATION_SENSOR_WINDSPEED_QS_FS
+                    bool "Using sensor QS-FS apps"
+                    default n
+                endif
+
+            menuconfig APPLICATION_SENSOR_ALTITUDE
+                bool "Using sensor altitude apps"
+                default n
+
+                if APPLICATION_SENSOR_ALTITUDE
+                    config APPLICATION_SENSOR_ALTITUDE_BMP180
+                    bool "Using sensor BMP180 apps"
+                    default n
+                endif
+        endif
+
+endmenu

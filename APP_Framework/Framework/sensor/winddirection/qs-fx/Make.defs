@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/winddirection/qs-fx/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_QS_FX),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/winddirection/qs-fx
+endif

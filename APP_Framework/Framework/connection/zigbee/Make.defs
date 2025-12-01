@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Framework/connection/zigbee/Make.defs
+############################################################################
+ifneq ($(CONFIG_CONNECTION_ADAPTER_ZIGBEE),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/zigbee
+endif
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/connection/zigbee/*/Make.defs)

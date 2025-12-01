@@ -1,0 +1,8 @@
+menuconfig SUPPORT_CONTROL_FRAMEWORK
+    bool "support control framework"
+    default n
+    select TRANSFORM_LAYER_ATTRIUBUTE
+
+if SUPPORT_CONTROL_FRAMEWORK
+    source "$APP_DIR/Framework/control/plc/interoperability/Kconfig"
+endif

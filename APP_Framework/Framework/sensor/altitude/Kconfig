@@ -1,0 +1,32 @@
+
+config SENSOR_BMP180
+        bool "Using BMP180"
+        default n
+
+        if SENSOR_BMP180
+                config SENSOR_DEVICE_BMP180
+                        string "BMP180 sensor name"
+                        default "bmp180"
+                
+                config SENSOR_QUANTITY_BMP180_ALTITUDE
+                        string "BMP180 quantity name"
+                        default "altitude_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_DEVICE_BMP180_DEV
+                                string "BMP180 device name"
+                                default "/dev/i2c1_dev0"
+                                
+                        config SENSOR_DEVICE_BMP180_I2C_ADDR
+                                hex "BMP180 device i2c address"
+                                default 0x77
+                endif
+
+                if ADD_NUTTX_FETURES
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+
+                endif
+        endif

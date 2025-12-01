@@ -1,0 +1,10 @@
+
+menuconfig USING_CONTROL_PLC_OPCUA
+        bool "PLC support OPCUA"
+        default y
+        depends on RESOURCES_LWIP
+
+menuconfig USING_CONTROL_PLC_SOCKET
+        bool "PLC support SOCKET"
+        default y
+        depends on RESOURCES_LWIP

@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('embedded database', src, depend = ['USING_EMBEDDED_DATABASE_FLASHDB'], CPPPATH = [cwd])
+
+Return('group')

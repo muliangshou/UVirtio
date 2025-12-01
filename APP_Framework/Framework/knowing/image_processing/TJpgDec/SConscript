@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+group = DefineGroup('Tiny JPEG Decompressor', src, depend = ['IMAGE_PROCESSING_USING_TJPGD'], CPPPATH = [cwd])
+
+Return('group')

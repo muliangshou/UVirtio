@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Framework/connection/4g/Make.defs
+############################################################################
+ifneq ($(CONFIG_CONNECTION_ADAPTER_4G),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/4g
+endif
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/connection/4g/*/Make.defs)

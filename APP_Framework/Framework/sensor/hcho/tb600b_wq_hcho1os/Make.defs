@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/sensor/hcho/tb600b_wq_hcho1os/Make.defs
+############################################################################
+ifneq ($(CONFIG_SENSOR_TB600B_WQ_HCHO1OS),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor/hcho/tb600b_wq_hcho1os
+endif

@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Framework/connection/lora/sx1278/Make.defs
+############################################################################
+ifneq ($(CONFIG_ADAPTER_LORA_SX1278),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/lora/sx1278
+endif

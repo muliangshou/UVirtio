@@ -1,0 +1,50 @@
+
+menuconfig DRV_USING_OV2640
+	bool "ov2640 driver"
+	default n
+	help 
+	note:
+		The resolution and window size must follow the proportional relationship, 
+	and the resolution value had better choose constant value(eg: 320*240), 
+	otherwise the picture will be problematic
+
+if DRV_USING_OV2640
+	choice
+    prompt "Output format"
+    default OV2640_JPEG_MODE
+	help
+		Select the camera output format
+    config OV2640_JPEG_MODE
+            bool "jpeg mode"
+    config OV2640_RGB565_MODE
+        	bool "RGB565 mode"
+    endchoice
+	config OV2640_X_RESOLUTION_IMAGE_OUTSIZE
+        int "X direction resolution of outputimage"
+        default 240
+	config OV2640_Y_RESOLUTION_IMAGE_OUTSIZE
+		int "Y direction resolution of outputimage"
+		default 240
+
+	config OV2640_X_IMAGE_WINDOWS_SIZE
+		int "X direction WINDOWS SIZE"
+		default 400
+		comment "the value must be greater than OV2640_X_RESOLUTION_IMAGE_OUTSIZE"
+	
+	config OV2640_Y_IMAGE_WINDOWS_SIZE
+		int "Y direction WINDOWS SIZE"
+		default 400
+		comment "the value must be greater than OV2640_Y_RESOLUTION_IMAGE_OUTSIZE"
+endif
+
+if SOC_FAMILY_STM32
+	config DRV_USING_OV2640
+		select BSP_USING_DCMI
+		config OV2640_RGB565_MODE
+			select BSP_USING_MCU_LCD
+endif
+
+if BOARD_K210_EVB
+	config DRV_USING_OV2640
+		select BSP_USING_DVP
+endif

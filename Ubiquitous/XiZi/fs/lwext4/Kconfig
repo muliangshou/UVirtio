@@ -1,0 +1,7 @@
+config CONFIG_USE_DEFAULT_CFG
+    int
+    default 1
+
+config CONFIG_HAVE_OWN_OFLAGS
+    int
+    default 0

@@ -1,0 +1,9 @@
+config BSP_USING_EXTSRAM
+    bool "config semc extern sram"
+    default n
+    select MEM_EXTERN_SRAM
+    if BSP_USING_EXTSRAM
+        config EXTSRAM_MAX_NUM
+            int "config extsram chip num"
+            default 4
+    endif

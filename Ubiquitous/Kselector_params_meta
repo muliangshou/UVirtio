@@ -1,0 +1,26 @@
+menu "Required Parameter"
+    config RAM_LESS_THAN
+        int "RAM footprint limit (MB) upper bound"
+        default 10000
+        help 
+                Kernel RAM footprint should be lower than this limit
+
+    config RAM_GREATER_THAN
+        int "RAM footprint limit (MB) lower bound"
+        default 0
+        help 
+                Kernel RAM footprint should be higher than this limit
+
+    config ROM_LESS_THAN
+        int "ROM limit (MB)  upper bound"
+        default 10000
+        help 
+                Kernel ROM requirement should be lower than this limit
+
+    config ROM_GREATER_THAN
+        int "ROM limit (MB)  lower bound"
+        default 0
+        help 
+                Kernel ROM requirement should be higher than this limit
+
+endmenu

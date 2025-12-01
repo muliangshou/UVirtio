@@ -1,0 +1,9 @@
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c') + Glob('*.cpp')
+CPPPATH = [cwd]
+
+group = DefineGroup('TJpgDec(example)', src, depend = ['IMAGE_PROCESSING_TJPGDEC_APP'], LOCAL_CPPPATH = CPPPATH)
+
+Return('group')

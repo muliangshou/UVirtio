@@ -1,0 +1,12 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SLIDING_WINDOW_MEAN_FILTER']):
+    src += ['sliding_window_mean_filter.c']
+if GetDepend(['ORDINARY_MEAN_FILTER']):
+    src += ['ordinary_mean_filter.c']
+group = DefineGroup('mean_filter', src, depend = ['USING_MEAN_FILTER'], CPPPATH = [cwd])
+
+Return('group')

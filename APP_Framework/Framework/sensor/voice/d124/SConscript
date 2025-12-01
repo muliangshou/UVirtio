@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SENSOR_D124']):
+    src += ['d124.c']
+group = DefineGroup('sensor voice d124', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

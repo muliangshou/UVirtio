@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SENSOR_QS_FX']):
+    src += ['qs-fx.c']
+group = DefineGroup('sensor wind direction qs-fx', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

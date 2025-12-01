@@ -1,0 +1,16 @@
+menu "lib"
+    choice
+            prompt "chose a kind of lib for app"
+            default APP_SELECT_NEWLIB
+
+            config APP_SELECT_NEWLIB
+                bool "app select newlib"
+
+            config APP_SELECT_OTHER_LIB
+                bool "app select other lib"
+    endchoice
+     source "$APP_DIR/lib/cJSON/Kconfig"
+     source "$APP_DIR/lib/queue/Kconfig"
+     source "$APP_DIR/lib/lvgl/Kconfig"
+     source "$APP_DIR/lib/embedded_database/Kconfig"
+endmenu

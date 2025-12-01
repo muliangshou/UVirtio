@@ -1,0 +1,5 @@
+config IMAGE_PROCESSING_TJPGDEC_APP
+    bool "image processing apps/TJpgDec(example)"
+    select USING_IMAGE_PROCESSING
+    select IMAGE_PROCESSING_USING_TJPGD
+    default n

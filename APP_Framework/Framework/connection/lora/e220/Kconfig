@@ -1,0 +1,44 @@
+config ADAPTER_LORA_E220
+        string "E220-400T22S adapter name"
+        default "e220"
+
+if ADD_XIZI_FETURES
+        config ADAPTER_E220_M0
+                int "E220 M0 pin number"
+                default "11"
+
+        config ADAPTER_E220_M1
+                int "E220 M1 pin number"
+                default "9"
+
+        config ADAPTER_E220_PIN_DRIVER
+                string "E220 device pin driver path"
+                default "/dev/pin_dev"
+        
+        config ADAPTER_E220_DRIVER_EXTUART
+                bool "Using extra uart to support lora"
+                default y
+
+        config ADAPTER_E220_DRIVER
+                string "E220 device uart driver path"
+                default "/dev/uart1_dev1"
+                depends on !ADAPTER_E220_DRIVER_EXTUART
+
+        if ADAPTER_E220_DRIVER_EXTUART                    
+                config ADAPTER_E220_DRIVER
+                        string "E220 device extra uart driver path"
+                        default "/dev/extuart_dev3"
+
+                config ADAPTER_E220_DRIVER_EXT_PORT
+                        int "if E220 device using extuart, choose port"
+                        default "3"
+        endif
+endif
+
+if ADD_NUTTX_FETURES
+
+endif
+
+if ADD_RTTHREAD_FETURES
+
+endif

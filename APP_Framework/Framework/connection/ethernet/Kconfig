@@ -1,0 +1,9 @@
+config ADAPTER_HFA21_ETHERNET
+        help
+            Please check HFA21 can only work for adapter_wifi or adapter_ethernet in the meantime!
+        bool "Using ethernet adapter device HFA21"
+        default n
+
+if ADAPTER_HFA21_ETHERNET
+    source "$APP_DIR/Framework/connection/ethernet/hfa21_ethernet/Kconfig"
+endif

@@ -1,0 +1,76 @@
+
+
+menuconfig BSP_USING_ADC1
+    bool "Enable ADC1"
+    default n
+    if BSP_USING_ADC1
+        config ADC1_BUS_NAME
+            string "adc 1 bus name"
+            default "adc1"
+
+        config ADC1_DRIVER_NAME
+            string "adc 1 driver name"
+            default "adc1_drv"
+
+        config ADC1_DEVICE_NAME
+            string "adc 1 bus device name"
+            default "adc1_dev"
+
+        config ADC1_GPIO_NUM
+            int "adc 1 gpio pin num"
+            default "0"
+        
+        config ADC1_GPIO_DEF
+            string "adc 1 gpio define type"
+            default "A"
+    endif
+
+menuconfig BSP_USING_ADC2
+    bool "Enable ADC2"
+    default n
+    if BSP_USING_ADC2
+        config ADC2_BUS_NAME
+            string "adc 2 bus name"
+            default "adc2"
+
+        config ADC2_DRIVER_NAME
+            string "adc 2 driver name"
+            default "adc2_drv"
+
+        config ADC2_DEVICE_NAME
+            string "adc 2 bus device name"
+            default "adc2_dev"
+
+        config ADC2_GPIO_NUM
+            int "adc 2 gpio pin num"
+            default "6"
+        
+        config ADC2_GPIO_DEF
+            string "adc 2 gpio define type"
+            default "A"
+    endif
+
+menuconfig BSP_USING_ADC3
+    bool "Enable ADC3"
+    default n
+    if BSP_USING_ADC3
+        config ADC3_BUS_NAME
+            string "adc 3 bus name"
+            default "adc3"
+
+        config ADC3_DRIVER_NAME
+            string "adc 3 driver name"
+            default "adc3_drv"
+
+        config ADC3_DEVICE_NAME
+            string "adc 3 bus device name"
+            default "adc3_dev"
+
+        config ADC3_GPIO_NUM
+            int "adc 3 gpio pin num"
+            default "0"
+        
+        config ADC3_GPIO_DEF
+            string "adc 3 gpio define type"
+            default "A"
+    endif

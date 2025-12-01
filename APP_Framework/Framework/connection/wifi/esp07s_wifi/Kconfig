@@ -1,0 +1,33 @@
+config ADAPTER_WIFI_ESP07S
+        string "ESP07S WIFI adapter name"
+        default "esp07s_wifi"
+
+if ADD_XIZI_FETURES
+
+        config ADAPTER_ESP07S_DRIVER_EXTUART
+                bool "Using extra uart to support wifi"
+                default n
+
+        config ADAPTER_ESP07S_DRIVER
+                string "ESP07S device uart driver path"
+                default "/dev/uart2_dev2"
+                depends on !ADAPTER_ESP07S_DRIVER_EXTUART
+
+        if ADAPTER_ESP07S_DRIVER_EXTUART                    
+                config ADAPTER_ESP07S_DRIVER
+                        string "ESP07S device extra uart driver path"
+                        default "/dev/extuart_dev6"
+
+                config ADAPTER_ESP07S_DRIVER_EXT_PORT
+                        int "if ESP07S device using extuart, choose port"
+                        default "6"
+        endif
+endif
+
+if ADD_NUTTX_FETURES
+
+endif
+
+if ADD_RTTHREAD_FETURES
+
+endif

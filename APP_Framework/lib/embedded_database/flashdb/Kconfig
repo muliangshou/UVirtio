@@ -1,0 +1,25 @@
+menuconfig USING_EMBEDDED_DATABASE_FLASHDB
+    bool "flashdb an ultra-lightweight embedded database "
+    default n
+
+if USING_EMBEDDED_DATABASE_FLASHDB
+    comment " fal io is not supported so far"
+    choice
+        prompt "select io mode"
+        default FDB_USING_FILE_POSIX_MODE
+        help
+                Select io mode
+        config FDB_USING_FILE_POSIX_MODE
+                bool "file posix io "
+        config FDB_USING_FILE_LIBC_MODE
+                bool "file libc io "
+        config FDB_USING_FAL_MODE
+                bool "flash fal io "
+    endchoice 
+    config FDB_USING_KVDB
+            bool "Use key value database"
+            default n
+    config FDB_USING_TSDB
+            bool "Use time series database"
+            default n
+endif

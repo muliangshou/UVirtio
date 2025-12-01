@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Applications/knowing_app/k210_fft_test/Make.defs
+############################################################################
+ifneq ($(CONFIG_K210_FFT_TEST),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Applications/knowing_app/k210_fft_test
+endif

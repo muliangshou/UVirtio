@@ -1,0 +1,48 @@
+
+config SENSOR_TB600B_IAQ10
+        bool "Using TB600B IAQ10"
+        default n
+
+        if SENSOR_TB600B_IAQ10
+                config SENSOR_DEVICE_TB600B_IAQ10
+                        string "tb600b iaq10 sensor name"
+                        default "tb600b_iaq10_1"
+                
+                config SENSOR_QUANTITY_TB600B_IAQ
+                        string "tb600b iaq10 quantity name"
+                        default "iaq_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_TB600B_IAQ10_DRIVER_EXTUART
+                                bool "Using extra uart to support tb600b iaq10"
+                                default y
+
+                        config SENSOR_DEVICE_TB600B_IAQ10_DEV
+                                string "tb600b iaq10 device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_TB600B_IAQ10_DRIVER_EXTUART
+
+                        if SENSOR_TB600B_IAQ10_DRIVER_EXTUART
+                                config SENSOR_DEVICE_TB600B_IAQ10_DEV
+                                        string "tb600b iaq10 device extra uart path"
+                                        default "/dev/extuart_dev5"
+
+                                config SENSOR_DEVICE_TB600B_IAQ10_DEV_EXT_PORT
+                                        int "if TB600B_IAQ10 device using extuart, choose port"
+                                        default "5"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                        config SENSOR_DEVICE_TB600B_IAQ10_DEV
+                                string "tb600b iaq10 device uart path"
+                                default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+
+                endif                
+        endif

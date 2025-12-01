@@ -1,0 +1,5 @@
+config EMBEDDED_DATABASE_FLASHDB_APP
+    bool "embedded database apps/flashdb(example)"
+    select USING_EMBEDDED_DATABASE
+    select USING_EMBEDDED_DATABASE_FLASHDB
+    default n

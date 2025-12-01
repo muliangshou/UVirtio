@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SENSOR_BMP180']):
+    src += ['bmp180.c']
+group = DefineGroup('sensor altitude bmp180', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

@@ -1,0 +1,6 @@
+menuconfig USING_IMAGE_PROCESSING
+    bool "image processing "
+    default n
+if USING_IMAGE_PROCESSING
+        source "$APP_DIR/Framework/knowing/image_processing/TJpgDec/Kconfig"
+endif

@@ -1,0 +1,14 @@
+menuconfig USING_NNOM_DEMOAPP
+        bool "NNOM demo app"
+        depends on USING_NNOM
+        default n
+
+    if USING_NNOM_DEMOAPP
+
+        config USING_NNOM_MNIST_DEMOAPP
+            bool "Using NNOM mnist demo app"
+            default n
+
+    endif
+
+

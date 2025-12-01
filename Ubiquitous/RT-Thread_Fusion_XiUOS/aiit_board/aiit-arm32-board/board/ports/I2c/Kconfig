@@ -1,0 +1,13 @@
+config BSP_USING_I2C1
+    bool "Enable I2C1 BUS (software simulation)"
+    default y
+    if BSP_USING_I2C1
+    config BSP_I2C1_SCL_PIN
+        int "I2C scl pin number"
+        range 0 143
+        default 24
+    config BSP_I2C1_SDA_PIN
+        int "I2C sda pin number"
+        range 0 143
+        default 25
+    endif

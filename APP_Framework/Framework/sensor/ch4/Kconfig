@@ -1,0 +1,65 @@
+
+config SENSOR_AS830
+        bool "Using as830"
+        default n
+
+        if SENSOR_AS830
+                config SENSOR_DEVICE_AS830
+                        string "as830 sensor name"
+                        default "as830_1"
+                
+                config SENSOR_QUANTITY_AS830_CH4
+                        string "as830 quantity name"
+                        default "ch4_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_AS830_DRIVER_EXTUART
+                                bool "Using extra uart to support as830"
+                                default y
+
+                        config SENSOR_DEVICE_AS830_DEV
+                                string "as830 device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_AS830_DRIVER_EXTUART
+
+                        if SENSOR_AS830_DRIVER_EXTUART
+                                config SENSOR_DEVICE_AS830_DEV
+                                        string "as830 device extra uart path"
+                                        default "/dev/extuart_dev1"
+
+                                config SENSOR_DEVICE_AS830_DEV_EXT_PORT
+                                        int "if AS830 device using extuart, choose port"
+                                        default "1"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                        config SENSOR_DEVICE_AS830_DEV
+                                string "as830 device uart path"
+                                default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+                        config SENSOR_AS830_DRIVER_EXTUART
+                                bool "Using extra uart to support as830"
+                                default y
+
+                        config SENSOR_DEVICE_AS830_DEV
+                                string "as830 device uart path"
+                                default "/dev/uart2"
+                                depends on !SENSOR_AS830_DRIVER_EXTUART
+
+                        if SENSOR_AS830_DRIVER_EXTUART
+                                config SENSOR_DEVICE_AS830_DEV
+                                        string "as830 device extra uart path"
+                                        default "/dev/extuart_dev4"
+
+                                config SENSOR_DEVICE_AS830_DEV_EXT_PORT
+                                        int "if AS830 device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif                
+        endif

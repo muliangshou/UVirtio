@@ -1,0 +1,14 @@
+menuconfig BSP_USING_UART4
+    bool "Enable UART4"
+    default y
+    if BSP_USING_UART4
+        config SERIAL_BUS_NAME_4
+            string "serial bus  name"
+            default "uart4"
+        config SERIAL_DRV_NAME_4
+            string "serial bus  driver name"
+            default "uart4_drv"
+        config SERIAL_4_DEVICE_NAME_4
+                string "serial bus  device name"
+                default "uart4_dev4"   
+    endif

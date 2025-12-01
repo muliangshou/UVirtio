@@ -1,0 +1,38 @@
+config ADAPTER_SX1278
+        bool "Using lora adapter device SX1278"
+        default n
+
+config ADAPTER_E220
+        bool "Using lora adapter device E220-400T22S"
+        default n
+
+choice 
+        prompt "Lora device adapter select net role type "
+        default AS_LORA_CLIENT_ROLE
+
+        config AS_LORA_GATEWAY_ROLE
+                bool "config as a gateway"
+
+        config AS_LORA_CLIENT_ROLE
+                bool "config as a client"
+endchoice
+
+if AS_LORA_GATEWAY_ROLE
+        config ADAPTER_LORA_NET_ROLE_ID
+                hex "if Lora device config as a gateway, set gateway net id"
+                default "0xFF"
+endif
+
+if AS_LORA_CLIENT_ROLE
+        config ADAPTER_LORA_NET_ROLE_ID
+                hex "if Lora device config as a client, set client net id"
+                default "0x01"
+endif
+
+if ADAPTER_SX1278
+    source "$APP_DIR/Framework/connection/lora/sx1278/Kconfig"
+endif 
+
+if ADAPTER_E220
+    source "$APP_DIR/Framework/connection/lora/e220/Kconfig"
+endif 

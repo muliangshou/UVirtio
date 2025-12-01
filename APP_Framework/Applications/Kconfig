@@ -1,0 +1,22 @@
+menu "Applications"
+
+    menu "config stack size and priority of main task"
+        config MAIN_KTASK_STACK_SIZE
+            int "Set main task stack size"
+            default 1024
+        config MAIN_KTASK_PRIORITY
+            int
+            default 4  if KTASK_PRIORITY_8
+            default 16  if KTASK_PRIORITY_32
+            default 85  if KTASK_PRIORITY_256
+    endmenu
+
+    source "$APP_DIR/Applications/ota/Kconfig"
+
+    source "$APP_DIR/Applications/app_test/Kconfig"
+    source "$APP_DIR/Applications/connection_app/Kconfig"
+    source "$APP_DIR/Applications/control_app/Kconfig"
+    source "$APP_DIR/Applications/knowing_app/Kconfig"
+    source "$APP_DIR/Applications/sensor_app/Kconfig"
+    source "$APP_DIR/Applications/embedded_database_app/Kconfig"
+endmenu

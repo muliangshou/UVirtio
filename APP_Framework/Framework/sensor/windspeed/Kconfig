@@ -1,0 +1,48 @@
+
+config SENSOR_QS_FS
+        bool "Using qs-fs wind speed sensor"
+        default n
+
+        if SENSOR_QS_FS
+                config SENSOR_DEVICE_QS_FS
+                        string "qs-fs sensor name"
+                        default "qs-fs"
+                
+                config SENSOR_QUANTITY_QS_FS_WINDSPEED
+                        string "qs-fs quantity name"
+                        default "windspeed_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_QS_FS_DRIVER_EXTUART
+                                bool "Using extra uart to support qs-fx"
+                                default y
+
+                        config SENSOR_DEVICE_QS_FS_DEV
+                                string "qs-fx device name"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_QS_FS_DRIVER_EXTUART
+
+                        if SENSOR_QS_FS_DRIVER_EXTUART
+                                config SENSOR_DEVICE_QS_FS_DEV
+                                        string "qs-fx device extra uart path"
+                                        default "/dev/extuart_dev7"
+                                
+                                config SENSOR_DEVICE_QS_FS_DEV_EXT_PORT
+                                        int "if qs-fx device using extuart, choose port"
+                                        default "7"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                        config SENSOR_DEVICE_QS_FS_DEV
+                                string "qs-fx device name"
+                                default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+
+                endif
+        endif

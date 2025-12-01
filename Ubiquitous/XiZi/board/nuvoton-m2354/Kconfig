@@ -1,0 +1,44 @@
+mainmenu "XiUOS Project Configuration"
+
+config BSP_DIR
+    string
+    option env="BSP_ROOT"
+    default "."
+
+config KERNEL_DIR
+    string
+    option env="KERNEL_ROOT"
+    default "../.."
+
+config BOARD_NUVOTON_M2354
+    bool
+    select ARCH_ARM
+    default y
+
+source "$KERNEL_DIR/arch/Kconfig"
+
+menu "nuvoton-m2354 feature"
+    source "$BSP_DIR/third_party_driver/Kconfig"
+    
+    menu "config default board resources"
+        menu "config board app name"
+            config BOARD_APP_NAME
+                string "config board app name"
+                default "/XiUOS_nuvoton_m2354_app.bin"
+        endmenu
+
+        menu "config board service table"
+            config SERVICE_TABLE_ADDRESS
+                hex "board service table address"
+                default 0x20000000
+        endmenu
+
+    endmenu
+
+endmenu
+
+menu "Hardware feature"
+    source "$KERNEL_DIR/resources/Kconfig"
+endmenu
+
+source "$KERNEL_DIR/Kconfig"

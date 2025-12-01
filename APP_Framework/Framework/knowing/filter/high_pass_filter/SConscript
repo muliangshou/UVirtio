@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['ONE_ORDER_RC_HIGH_PASS_FILTER']):
+    src += ['one_order_rc_hpf.c']
+group = DefineGroup('high_pass_filter', src, depend = ['USING_HIGH_PASS_FILTER'], CPPPATH = [cwd])
+
+Return('group')

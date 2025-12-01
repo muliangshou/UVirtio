@@ -1,0 +1,7 @@
+menuconfig USING_YOLOV2_JSONPARSER
+    bool "yolov2 model json parser"
+	depends on USING_KPU_PROCESSING
+    default n
+
+
+

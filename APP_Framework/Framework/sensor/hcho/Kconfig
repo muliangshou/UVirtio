@@ -1,0 +1,65 @@
+
+config SENSOR_TB600B_WQ_HCHO1OS
+        bool "Using TB600B WQ_HCHO1OS"
+        default n
+
+        if SENSOR_TB600B_WQ_HCHO1OS
+                config SENSOR_DEVICE_TB600B_WQ_HCHO1OS
+                        string "tb600b wq_hcho1os sensor name"
+                        default "tb600b_wq_hcho1os_1"
+                
+                config SENSOR_QUANTITY_TB600B_HCHO
+                        string "tb600b wq_hcho1os quantity name"
+                        default "hcho_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+                                bool "Using extra uart to support tb600b wq_hcho1os"
+                                default y
+
+                        config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV
+                                string "tb600b wq_hcho1os device uart path"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+
+                        if SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+                                config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV
+                                        string "tb600b wq_hcho1os device extra uart path"
+                                        default "/dev/extuart_dev5"
+
+                                config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV_EXT_PORT
+                                        int "if TB600B_WQ_HCHO1OS device using extuart, choose port"
+                                        default "5"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                        config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV
+                                string "tb600b wq_hcho1os device uart path"
+                                default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+                        config SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+                                bool "Using extra uart to support tb600b wq_hcho1os"
+                                default y
+
+                        config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV
+                                string "tb600b wq_hcho1os device uart path"
+                                default "/dev/uart2"
+                                depends on !SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+
+                        if SENSOR_TB600B_WQ_HCHO1OS_DRIVER_EXTUART
+                                config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV
+                                        string "tb600b wq_hcho1os device extra uart path"
+                                        default "/dev/extuart_dev1"
+
+                                config SENSOR_DEVICE_TB600B_WQ_HCHO1OS_DEV_EXT_PORT
+                                        int "if TB600B_WQ_HCHO1OS device using extuart, choose port"
+                                        default "1"
+                        endif
+                endif                
+        endif

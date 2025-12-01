@@ -1,0 +1,6 @@
+############################################################################
+# Applications/knowing_app/Make.defs
+############################################################################
+ifneq ($(CONFIG_APPLICATION_KNOWING),)
+include $(wildcard $(APPDIR)/../../../APP_Framework/Applications/knowing_app/*/Make.defs)   
+endif

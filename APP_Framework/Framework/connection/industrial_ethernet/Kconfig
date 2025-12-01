@@ -1,0 +1,7 @@
+config CONNECTION_ADAPTER_ETHERCAT
+    bool "Using ethercat on industrial_ethernet adapter device"
+    default n
+
+    if CONNECTION_ADAPTER_ETHERCAT
+        source "$APP_DIR/Framework/connection/industrial_ethernet/ethercat/Kconfig"
+    endif

@@ -1,0 +1,4 @@
+menuconfig USING_OTA_MODEL
+    bool "OTA (KPU MODEL)"
+    select PKG_USING_RW007
+    default n

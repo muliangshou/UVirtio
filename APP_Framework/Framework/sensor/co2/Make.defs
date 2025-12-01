@@ -1,0 +1,4 @@
+############################################################################
+# APP_Framework/Framework/sensor/co2/Make.defs
+############################################################################
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/sensor/co2/*/Make.defs)

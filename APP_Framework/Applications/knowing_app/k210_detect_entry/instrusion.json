@@ -1,0 +1,35 @@
+{
+	"net_input_size": [
+		224,
+		320
+	],
+	"net_output_shape": [
+		10,
+		7,
+		30
+	],
+	"sensor_output_size": [
+		240,
+		320
+	],
+	"anchors": [
+		1.043,
+		1.092,
+		0.839,
+		2.1252,
+		1.109,
+		2.7461,
+		1.378,
+		3.6708,
+		2.049,
+		4.6711
+	],
+	"kmodel_size": 2713236,
+	"obj_thresh": [
+		0.7
+	],
+	"labels": [
+		"human"
+	],
+	"nms_thresh": 0.35
+}

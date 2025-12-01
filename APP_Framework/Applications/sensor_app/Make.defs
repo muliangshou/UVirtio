@@ -1,0 +1,6 @@
+############################################################################
+# APP_Framework/Applications/sensor_app/Make.defs
+############################################################################
+ifneq ($(CONFIG_APPLICATION_SENSOR),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Applications/sensor_app
+endif

@@ -1,0 +1,8 @@
+config SLIDING_WINDOW_MEAN_FILTER
+        bool "sliding window mean filter"
+        select LIB_USING_QUEUE
+        default n
+
+config ORDINARY_MEAN_FILTER
+        bool "ordinary mean filter"
+        default n

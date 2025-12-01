@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Framework/sensor/Make.defs
+############################################################################
+ifneq ($(CONFIG_SUPPORT_SENSOR_FRAMEWORK),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/sensor
+endif
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/sensor/*/Make.defs)

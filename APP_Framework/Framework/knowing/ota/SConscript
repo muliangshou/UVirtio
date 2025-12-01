@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['USING_OTA_MODEL']):
+    src += ['httpclient.c']
+group = DefineGroup('ota model', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

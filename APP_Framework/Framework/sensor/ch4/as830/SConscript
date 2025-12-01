@@ -1,0 +1,10 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+if GetDepend(['SENSOR_AS830']):
+    src += ['as830.c']
+group = DefineGroup('sensor ch4 as830', src, depend = [], CPPPATH = [cwd])
+
+Return('group')

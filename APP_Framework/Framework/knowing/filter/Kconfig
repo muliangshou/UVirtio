@@ -1,0 +1,34 @@
+menuconfig USING_KNOWING_FILTER
+        bool "filters "
+        default n
+
+if USING_KNOWING_FILTER
+        menuconfig USING_MEAN_FILTER
+                bool "Using mean filter"
+                default n
+        if USING_MEAN_FILTER
+        source "$APP_DIR/Framework/knowing/filter/mean_filter/Kconfig"
+        endif
+
+        menuconfig USING_KALMAN_FILTER
+                bool "Using kalman filter"
+                default n
+        if USING_KALMAN_FILTER
+        source "$APP_DIR/Framework/knowing/filter/kalman_filter/Kconfig"
+        endif
+        
+        menuconfig USING_LOW_PASS_FILTER
+                bool "Using low pass filter"
+                default n
+        if USING_LOW_PASS_FILTER
+        source "$APP_DIR/Framework/knowing/filter/low_pass_filter/Kconfig"
+        endif
+
+        menuconfig USING_HIGH_PASS_FILTER
+                bool "Using high pass filter"
+                default n
+        if USING_HIGH_PASS_FILTER
+        source "$APP_DIR/Framework/knowing/filter/high_pass_filter/Kconfig"
+        endif
+        
+endif

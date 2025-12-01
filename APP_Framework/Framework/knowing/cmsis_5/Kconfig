@@ -1,0 +1,40 @@
+menuconfig USING_CMSIS_5
+    bool "CMSIS-5"
+    default n
+
+if USING_CMSIS_5
+
+    menuconfig USING_CMSIS_5_NN
+        bool "CMSIS-5 NN"
+        default n
+
+    if USING_CMSIS_5_NN
+    
+        config USING_CMSIS_5_NN_ACTIVATION
+            bool "CMSIS-5 NN ACTIVATION"
+            default y
+
+        config USING_CMSIS_5_NN_CONVOLUTION
+            bool "CMSIS-5 NN CONVOLUTION"
+            default y
+
+        config USING_CMSIS_5_NN_FULLY_CONNECTED
+            bool "CMSIS-5 NN FULLY CONNECTED"
+            default y
+
+        config USING_CMSIS_5_NN_SUPPORT
+            bool "CMSIS-5 NN SUPPORT"
+            default y
+
+        config USING_CMSIS_5_NN_POOLING
+            bool "CMSIS-5 NN POOLING"
+            default y
+
+        config USING_CMSIS_5_NN_SOFTMAX
+            bool "CMSIS-5 NN SOFTMAX"
+            default y
+
+    endif
+
+endif
+

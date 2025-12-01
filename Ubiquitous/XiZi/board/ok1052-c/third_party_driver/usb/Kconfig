@@ -1,0 +1,15 @@
+config BSP_USING_NXP_USBH
+    bool "Using usb host by NXP library"
+    default n
+    if BSP_USING_NXP_USBH
+        config USB_BUS_NAME
+            string "usb bus name"
+            default "usb"
+        config USB_DRIVER_NAME
+            string "usb bus driver name"
+            default "usb_drv"
+        config USB_DEVICE_NAME
+            string "usb bus device name"
+            default "usb_dev"
+    endif
+

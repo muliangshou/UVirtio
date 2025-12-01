@@ -1,0 +1,25 @@
+menuconfig USING_TENSORFLOWLITEMICRO
+    bool "Tensorflow Lite for Micro"
+    select RT_USING_CPLUSPLUS
+    select  LIB_CPLUSPLUS
+    default n
+
+if USING_TENSORFLOWLITEMICRO
+
+    choice
+        prompt "Select Tensorflow Lite Operators Type"
+        default USING_TENSORFLOWLITEMICRO_NORMAL
+
+        config USING_TENSORFLOWLITEMICRO_NORMAL
+            bool "Using Tensorflow Lite normal operations"
+
+        config USING_TENSORFLOWLITEMICRO_CMSISNN
+            bool "Using Tensorflow Lite CMSIS NN operations"
+    endchoice
+
+    config USING_TENSORFLOWLITEMICRO_DEMOAPP
+        bool "Using tensorflow lite for micro demo app"
+        default n
+
+endif
+

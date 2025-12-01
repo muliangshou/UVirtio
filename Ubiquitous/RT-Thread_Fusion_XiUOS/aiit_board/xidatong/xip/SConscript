@@ -1,0 +1,20 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+cwd = GetCurrentDir()
+SOURCES = []
+CPPPATH = [cwd]
+if GetDepend('BSP_USING_BOOT_IMAGE'):
+    SOURCES = Glob('*.c')
+    if rtconfig.CROSS_TOOL == 'keil':
+        LINKFLAGS  = '--keep=*(.boot_hdr.ivt)'
+        LINKFLAGS += '--keep=*(.boot_hdr.boot_data)'
+        LINKFLAGS += '--keep=*(.boot_hdr.dcd_data)'
+        LINKFLAGS += '--keep=*(.boot_hdr.conf)' 
+    else:
+        SOURCES = Glob('*.c') 
+        LINKFLAGS = '' 
+else:
+    LINKFLAGS = '' 
+group = DefineGroup('xip', src= SOURCES, depend = [''], CPPPATH = CPPPATH, LINKFLAGS = LINKFLAGS) 
+Return('group')

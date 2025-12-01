@@ -1,0 +1,11 @@
+import os
+from building import * 
+Import('RTT_ROOT')
+Import('rtconfig')
+cwd = GetCurrentDir()
+DEPENDS = [""]
+
+SOURCES = ['transform.c']
+path =  [cwd]
+objs = DefineGroup('transform', src = SOURCES, depend = DEPENDS,CPPPATH = path) 
+Return("objs") 

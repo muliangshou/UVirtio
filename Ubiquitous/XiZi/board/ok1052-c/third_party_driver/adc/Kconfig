@@ -1,0 +1,29 @@
+config BSP_USING_ADC1
+bool "Enable ADC1"
+default y
+if BSP_USING_ADC1
+    config ADC_BUS_NAME_1
+        string "adc bus 1 name"
+        default "adc1"
+    config ADC_DRV_NAME_1
+        string "adc bus 1 driver name"
+        default "adc1_drv"
+    config ADC_1_DEVICE_NAME_0
+        string "adc bus 1 device name"
+        default "adc1_dev"
+endif
+
+config BSP_USING_ADC2
+bool "Enable ADC2"
+default y
+if BSP_USING_ADC2
+    config ADC_BUS_NAME_2
+        string "adc bus 2 name"
+        default "adc2"
+    config ADC_DRV_NAME_2
+        string "adc bus 2 driver name"
+        default "adc2_drv"
+    config ADC_2_DEVICE_NAME_0
+        string "adc bus 2 device name"
+        default "adc2_dev"
+endif

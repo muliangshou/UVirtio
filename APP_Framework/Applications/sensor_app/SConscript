@@ -1,0 +1,24 @@
+import os
+from building import * 
+Import('RTT_ROOT')
+Import('rtconfig')
+cwd = GetCurrentDir()
+DEPENDS = ["SUPPORT_SENSOR_FRAMEWORK"]
+SOURCES = []
+if GetDepend(['APPLICATION_SENSOR_CO2_ZG09']):
+    SOURCES = ['co2_zg09.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_PM1_0_PS5308']):
+    SOURCES = ['pm1_0_ps5308.c.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_VOICE_D124']):
+    SOURCES = ['voice_d124.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_HUMIDITY_HS300X']):
+    SOURCES = ['humidity_hs300x.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_TEMPERATURE_HS300X']):
+    SOURCES = ['temperature_hs300x.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_CH4_AS830']):
+    SOURCES = ['ch4_as830.c'] + SOURCES
+if GetDepend(['APPLICATION_SENSOR_HCHO']):
+    SOURCES = ['hcho_tb600b_wq_hcho1os.c'] + SOURCES
+path =  [cwd]
+objs = DefineGroup('sensor_app', src = SOURCES, depend = DEPENDS,CPPPATH = path) 
+Return("objs") 

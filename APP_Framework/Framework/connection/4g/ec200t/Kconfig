@@ -1,0 +1,43 @@
+config ADAPTER_4G_EC200T
+        string "EC200T adapter name"
+        default "ec200t"
+
+if ADD_XIZI_FETURES
+        config ADAPTER_EC200T_PWRKEY
+                int "EC200T PWRKEY pin number"
+                default "97"
+
+        config ADAPTER_EC200T_PIN_DRIVER
+                string "EC200T device pin driver path"
+                default "/dev/pin_dev"
+
+        config ADAPTER_EC200T_DRIVER_EXTUART
+                bool "Using extra uart to support 4G"
+                default n
+
+        config ADAPTER_EC200T_DRIVER
+                string "EC200T device uart driver path"
+                default "/dev/usart2_dev2"
+                depends on !ADAPTER_EC200T_DRIVER_EXTUART
+
+        if ADAPTER_EC200T_DRIVER_EXTUART                    
+                config ADAPTER_EC200T_DRIVER
+                        string "EC200T device extra uart driver path"
+                        default "/dev/extuart_dev5"
+
+                config ADAPTER_EC200T_DRIVER_EXT_PORT
+                        int "if EC200T device using extuart, choose port"
+                        default "5"
+        endif
+endif
+
+if ADD_NUTTX_FETURES
+        config ADAPTER_EC200T_DRIVER
+                string "EC200T device uart driver path"
+                default "/dev/ttyS8"
+
+endif
+
+if ADD_RTTHREAD_FETURES
+
+endif

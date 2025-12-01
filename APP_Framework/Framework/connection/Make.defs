@@ -1,0 +1,7 @@
+############################################################################
+# APP_Framework/Framework/connection/Make.defs
+############################################################################
+ifneq ($(CONFIG_SUPPORT_CONNECTION_FRAMEWORK),)
+CONFIGURED_APPS += $(APPDIR)/../../../APP_Framework/Framework/connection/
+endif
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/connection/*/Make.defs)

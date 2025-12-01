@@ -1,0 +1,4 @@
+config BSP_USING_GPIO
+    bool "Enable GPIO"
+    default y
+

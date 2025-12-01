@@ -1,0 +1,65 @@
+menu "Required Feature" # do not modify this, otherwise, (see `egrep '^# Required'` in kernel_selector.sh)
+
+menuconfig FS
+    bool  "require file system"
+    default n
+        
+if FS
+    config FS_VFS_FATFS
+    bool "Using FATFS file system"
+    default n
+
+    config FS_CH376
+    bool "Using CH376 file system"
+    default n
+
+    config FS_LWEXT4
+    bool "Using LWEXT4 file system"
+    default n
+endif
+
+
+menuconfig INDUSTRIAL
+    bool  "Require industrial protocols support"
+    default n
+    
+if INDUSTRIAL
+    config INDUSTRIAL_OPCUA
+        bool "Support OPCUA"
+        default n
+
+    config INDUSTRIAL_SNAP7
+        bool "Support Siemens Snap7"
+        default n
+
+    config INDUSTRIAL_MODBUS
+        bool "Support Modbus"
+        default n
+
+    config INDUSTRIAL_RS232
+        bool "Support RS232"
+        default n
+
+    config INDUSTRIAL_RS485
+        bool "Support RS485"
+        default n
+endif
+
+
+menuconfig BUS
+    bool  "require bus"
+    default y
+
+if BUS
+    menu "Required BUS"
+        config USB
+            bool "require USB bus"
+            default n
+
+        config SERIAL
+            bool "require serial bus"
+            default n
+    endmenu
+endif
+
+endmenu

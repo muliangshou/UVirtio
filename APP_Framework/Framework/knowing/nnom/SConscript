@@ -1,0 +1,18 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = []
+CPPDEFINES = []
+CPPPATH = []
+
+src += Glob('src/core/*.c')
+src += Glob('src/layers/*.c')
+src += Glob('src/backends/*.c')
+
+CPPPATH+=['%s/inc'%(cwd), '%s/port'%(cwd)]
+
+
+group = DefineGroup('nnom', src, depend = ['USING_NNOM'], CPPPATH = CPPPATH, LOCAL_CPPDEFINES=CPPDEFINES)
+
+Return('group')

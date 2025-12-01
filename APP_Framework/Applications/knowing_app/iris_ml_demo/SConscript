@@ -1,0 +1,9 @@
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c') + Glob('*.cpp')
+CPPPATH = [cwd]
+
+group = DefineGroup('Applications', src, depend = ['IRIS_ML_DEMO'], LOCAL_CPPPATH = CPPPATH)
+
+Return('group')

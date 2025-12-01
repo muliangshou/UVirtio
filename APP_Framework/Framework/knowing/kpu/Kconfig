@@ -1,0 +1,8 @@
+menuconfig USING_KPU_PROCESSING
+    bool "kpu model processing"
+    default y
+if USING_KPU_PROCESSING
+        source "$APP_DIR/Framework/knowing/kpu/yolov2/Kconfig"
+        source "$APP_DIR/Framework/knowing/kpu/yolov2_json/Kconfig"
+        source "$APP_DIR/Framework/knowing/kpu/k210_yolov2_detect_procedure/Kconfig"
+endif

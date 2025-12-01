@@ -1,0 +1,4 @@
+############################################################################
+# APP_Framework/Framework/sensor/tvoc/Make.defs
+############################################################################
+include $(wildcard $(APPDIR)/../../../APP_Framework/Framework/sensor/tvoc/*/Make.defs)

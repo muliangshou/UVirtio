@@ -1,0 +1,40 @@
+config ADAPTER_NBIOT_BC28
+        string "BC28 adapter name"
+        default "bc28"
+
+if ADD_XIZI_FETURES
+        config ADAPTER_BC28_RESETPIN
+                int "BC28 RESET pin number"
+                default "100"
+
+        config ADAPTER_BC28_PIN_DRIVER
+                string "BC28 device pin driver path"
+                default "/dev/pin_dev"
+
+        config ADAPTER_BC28_DRIVER_EXTUART
+                bool "Using extra uart to support nbiot"
+                default n
+
+        config ADAPTER_BC28_DRIVER
+                string "BC28 device uart driver path"
+                default "/dev/usart2_dev2"
+                depends on !ADAPTER_BC28_DRIVER_EXTUART
+
+        if ADAPTER_BC28_DRIVER_EXTUART                    
+                config ADAPTER_BC28_DRIVER
+                        string "BC28 device extra uart driver path"
+                        default "/dev/extuart_dev5"
+
+                config ADAPTER_BC28_DRIVER_EXT_PORT
+                        int "if BC28 device using extuart, choose port"
+                        default "5"
+        endif
+endif
+
+if ADD_NUTTX_FETURES
+
+endif
+
+if ADD_RTTHREAD_FETURES
+
+endif

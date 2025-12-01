@@ -1,0 +1,45 @@
+config BSP_USING_SPI1
+bool "Enable SPI1"
+default y
+if BSP_USING_SPI1
+    config SPI_1_BUS_NAME
+        string "spi1 bus name"
+        default "spi1"
+    config SPI_1_DRV_NAME
+        string "spi bus 1 driver name"
+        default "spi1_drv"
+    config SPI_1_DEV_NAME_0
+        string "spi bus 1 device name"
+        default "spi1_dev"
+endif
+
+config BSP_USING_SPI2
+bool "Enable SPI2"
+default y
+if BSP_USING_SPI2
+    config SPI_2_BUS_NAME
+        string "spi2 bus name"
+        default "spi2"
+    config SPI_2_DRV_NAME
+        string "spi bus 2 driver name"
+        default "spi2_drv"
+    config SPI_2_DEV_NAME_0
+        string "spi bus 2 device name"
+        default "spi2_dev"
+endif
+
+config BSP_USING_SPI3
+bool "Enable SPI3"
+default y
+if BSP_USING_SPI3
+    config SPI_3_BUS_NAME
+        string "spi3 bus name"
+        default "spi3"
+    config SPI_3_DRV_NAME
+        string "spi bus 3 driver name"
+        default "spi3_drv"
+    config SPI_3_DEV_NAME_0
+        string "spi bus 3 device name"
+        default "spi3_dev"
+endif
+

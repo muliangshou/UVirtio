@@ -1,0 +1,11 @@
+config ADAPTER_HFA21_ETHERCAT
+        depends on ADAPTER_HFA21_ETHERNET # ADAPTER_HFA21_WIFI
+        help
+            Ethercat is dependant on Ethernet. Please enable hfa21 ethernet first. And this is a software-defined experiment module, without supports on ECS and on-the-fly.
+        bool "Using ethercat on ethernet adapter device HFA21"
+        default n
+
+    if ADAPTER_HFA21_ETHERCAT
+        source "$APP_DIR/Framework/connection/industrial_ethernet/ethercat/hfa21_ethercat/Kconfig"
+    endif
+

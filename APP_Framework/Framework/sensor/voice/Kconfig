@@ -1,0 +1,65 @@
+
+config SENSOR_D124
+        bool "Using D124"
+        default n
+
+        if SENSOR_D124
+                config SENSOR_DEVICE_D124
+                        string "D124 sensor name"
+                        default "d124_1"
+                
+                config SENSOR_QUANTITY_D124_VOICE
+                        string "D124 quantity voice name"
+                        default "voice_1"
+                
+                if ADD_XIZI_FETURES
+                        config SENSOR_D124_DRIVER_EXTUART
+                                bool "Using extra uart to support D124"
+                                default y
+
+                        config SENSOR_DEVICE_D124_DEV
+                                string "D124 device name"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_D124_DRIVER_EXTUART
+
+                        if SENSOR_D124_DRIVER_EXTUART
+                                config SENSOR_DEVICE_D124_DEV
+                                        string "D124 device extra uart path"
+                                        default "/dev/extuart_dev4"
+                                
+                                config SENSOR_DEVICE_D124_DEV_EXT_PORT
+                                        int "if D124 device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif
+
+                if ADD_NUTTX_FETURES
+                       config SENSOR_DEVICE_D124_DEV
+                               string "D124 device name"
+                               default "/dev/ttyS1"
+                               ---help---
+                                   If USART1 is selected, then fill in /dev/ttyS1 here.
+
+                endif
+
+                if ADD_RTTHREAD_FETURES
+                        config SENSOR_D124_DRIVER_EXTUART
+                                bool "Using extra uart to support D124"
+                                default y
+
+                        config SENSOR_DEVICE_D124_DEV
+                                string "D124 device name"
+                                default "/dev/uart2_dev2"
+                                depends on !SENSOR_D124_DRIVER_EXTUART
+
+                        if SENSOR_D124_DRIVER_EXTUART
+                                config SENSOR_DEVICE_D124_DEV
+                                        string "D124 device extra uart path"
+                                        default "/dev/extuart_dev4"
+                                
+                                config SENSOR_DEVICE_D124_DEV_EXT_PORT
+                                        int "if D124 device using extuart, choose port"
+                                        default "4"
+                        endif
+                endif
+        endif
