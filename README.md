@@ -19,7 +19,7 @@ $ sudo apt install build-essential pkg-config
 $ sudo apt install gcc make libncurses5-dev openssl libssl-dev bison flex libelf-dev autoconf libtool gperf libc6-dev  git
 ```
 
-Download the kconfig-frontends toolchain and install.
+Download the `kconfig-frontends` toolchain and install.
 
 ```
 mkdir kfrontends  && cd kfrontends
@@ -37,7 +37,7 @@ mkdir test  &&  cd test
 git clone https://github.com/muliangshou/UVirtio.git
 ```
 
-go to `Ubiquitous/XiZi/board/k210-emulator` and modify the contents of board/k210-emulator/config.mk.
+go to `Ubiquitous/XiZi/board/k210-emulator` and modify the contents of `board/k210-emulator/config.mk`.
 ```
 export CROSS_COMPILE ?=[your_riscv-none-embed-gcc_chain_location]
 ```
@@ -63,7 +63,7 @@ kflash -t build/XiZi_aiit-riscv64-board.bin -p /dev/ttyUSB0
 ## Project Structure
 ### 1. Other File Modifications
 
-To implement the relevant functionalities of the designed Virtio device driver, combined with XiUOS's design, the files we modified are primarily located in this directory. However, some other files were also modified. The content of these files is not the focus of this document, so a brief explanation is uniformly provided here.
+To implement the relevant functionalities of the designed Virtio device driver, combined with XiUOS's design, the files we modified are primarily located in this directory `\Ubiquitous\XiZi\`. However, some other files were also modified. The content of these files is not the focus of this document, so a brief explanation is uniformly provided here.
 
 - `/arch/arm/cortex-m3/arch_interrupt.h`: Added relevant interrupt number macro definitions for using the cortex-m3's UART2.
 - `/board/cortex-m3-emulator/connect_uart.c`, `/board/hifive1-emulator/third_party_driver/connect_uart.c`: These two files correspond to the ARM and RISC-V architectures, respectively, if you want to run QEMU simulations. Since there is no actual Virtio device in the simulation, we modified the serial device initialization part to implement the upper-layer Virtio device driver based on the vacant UART2. In these two files, we completed the creation, initialization, configuration (upper-layer calls) of the Virtio device, and related calls for interrupt handling.
