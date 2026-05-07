@@ -217,7 +217,7 @@ This is the content of `/resources/virtio/dev_virtio.c`, implementing some funct
 
 ### 3. Virtio Device Drivers
 
-Based on the Virtio 1.0 specification, we implemented two devices, Virtio-blk and Virtio-net. Additionally, we implemented a simple Virtio-serial device based on the underlying serial device. Virtio-blk and Virtio-net lack actual underlying physical or virtual hardware support, so they only provide read/write interfaces adapted to the XiUOS device driver model for the upper layer. Internally, they implement virtqueue to complete the data interaction process between the Driver and the Device. As for Virtio-serial, it simply adds calls to the hardware interface (emulated by QEMU) at the lower layer of the Device.
+Based on the Virtio 1.0 specification, we implemented two devices, Virtio-blk and Virtio-net. Additionally, we implemented a simple Virtio-serial device based on the underlying serial device. Virtio-blk and Virtio-net lack actual underlying physical or virtual hardware support, so they only provide read/write interfaces adapted to the XiUOS device driver model for the upper layer. Internally, they implement virtqueue to complete the data interaction process between the Driver and the Device. As for Virtio-serial, it simply adds calls to the hardware interface (if emulated, this would be QEMU) at the lower layer of the Device.
 
 #### 3.1 Virtio-serial
 
